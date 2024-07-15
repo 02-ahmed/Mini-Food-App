@@ -34,6 +34,10 @@ function App() {
   let quantityTotal = 0;
   cart.forEach(item => quantityTotal += item.quantity)
 
+  const handleDelete = (item:Product) => {
+    setCart(cart.filter((cartItem) => (cartItem.id !== item.id)))
+    console.log(cart)
+  }
 
   return (
     <>
@@ -44,7 +48,7 @@ function App() {
             <Products handleClick={addToCart} />
           </div>
           <div className="col-12 col-md-3 mt-3 mt-md-0">
-            <Summary cart={cart} total={total} quantityTotal={quantityTotal}/>
+            <Summary cart={cart} total={total} quantityTotal={quantityTotal} handleDelete={handleDelete}/>
           </div>
         </div>
       </div>

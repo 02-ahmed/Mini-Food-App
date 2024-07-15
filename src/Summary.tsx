@@ -6,9 +6,10 @@ interface Props {
   cart: Product[];
   total: number;
   quantityTotal:number
+  handleDelete: (item:Product) => void
 }
 
-const Summary = ({ cart, total, quantityTotal }: Props) => {
+const Summary = ({ cart, total, quantityTotal, handleDelete }: Props) => {
   return (
     <div className="container-fluid bg-white rounded">
       <h3 className="text-danger">Your Cart {quantityTotal > 0 ? `(${quantityTotal})` : ""}</h3>
@@ -17,7 +18,7 @@ const Summary = ({ cart, total, quantityTotal }: Props) => {
           <div className="mb-3">
             <li className="d-flex justify-content-between">
               <p className="m-0">{item.name}</p>
-              <CiCircleRemove type="button" />
+              <CiCircleRemove onClick={() => handleDelete(item)} type="button"  />
             </li>
             <div className="d-flex">
               <p className="me-2">{item.quantity}x</p>
