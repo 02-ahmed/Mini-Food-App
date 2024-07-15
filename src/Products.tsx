@@ -8,6 +8,8 @@ export interface Product {
   name: string;
   category: string;
   price: number;
+  quantity:number;
+  id:number
 }
 
 interface Props {
@@ -42,7 +44,7 @@ const Products = ({ handleClick }: Props) => {
                     style={{
                       position: "absolute",
                       left: "27%",
-                      bottom: "120px",
+                      bottom: "100px",
                       zIndex: "3",
                       transform: "translate(-50% 50%)",
                       whiteSpace: "nowrap",
@@ -56,10 +58,10 @@ const Products = ({ handleClick }: Props) => {
                     Add to cart
                   </button>
                 </div>
-                <div className="card-body mt-3">
-                  <p className="m-0">{product.category}</p>
-                  <p className="m-0">{product.name}</p>
-                  <p>{product.price}</p>
+                <div className="card-body mt-3 pb-0">
+                  <p className="m-0 text-secondary">{product.category}</p>
+                  <p className="m-0 ">{product.name}</p>
+                  <p className="text-danger">${product.price.toFixed(2)}</p>
                 </div>
               </div>
             </div>
