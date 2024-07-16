@@ -1,4 +1,3 @@
-import React from "react";
 import { Product } from "./Products";
 import { CiCircleRemove } from "react-icons/ci";
 
